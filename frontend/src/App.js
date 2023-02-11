@@ -1,24 +1,36 @@
 import "./App.css"
-import data from "./data"
+import Container from "react-bootstrap/Container"
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom"
 import HomeScreen from "./Screens/HomeScreen"
 import ProductScreen from "./Screens/ProductScreen"
+import Navbar from "react-bootstrap/Navbar"
+import { LinkContainer } from "react-router-bootstrap"
 
 function App() {
     return (
         <BrowserRouter>
-            <div>
+            <div className="d-flex flex-column site-container">
                 <header>
-                    <Link to="/">amazone</Link>
+                    <Navbar bg="dark" variant="dark">
+                        <Container>
+                            <LinkContainer to="/">
+                                <Navbar.Brand>amazona</Navbar.Brand>
+                            </LinkContainer>
+                        </Container>
+                    </Navbar>
                 </header>
-            
+
                 <main>
-                  <Routes>
-                    <Route path="/" element={<HomeScreen/>}/>
-                    <Route path="/product/:slug" element={<ProductScreen/>}/>
-                  </Routes>
-                   
+                    <Container  className="mt-3">
+                        <Routes>
+                            <Route path="/" element={<HomeScreen />} />
+                            <Route path="/product/:slug" element={<ProductScreen />} />
+                        </Routes>
+                    </Container>
                 </main>
+                <footer>
+                    <div className="text-center">All rights reserved</div>
+                </footer>
             </div>
         </BrowserRouter>
     )

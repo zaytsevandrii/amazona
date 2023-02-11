@@ -11,20 +11,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-header{
-  background-color: #404040;
-  padding: 1rem;
-  color: #fff;
-}
 
-header a{
-  color: #ffffff;
-  font-weight: bold;
-  text-decoration: none;
+.site-container{
+  min-height: 100vh;
+}
+main{
+  flex: 1;
 }
 
 .products{
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
 }
 
@@ -41,4 +38,21 @@ header a{
 
 .product-info{
   padding: 1rem;
+}
+
+.rating span{
+  color: #f7c224;
+}
+
+.btn-primary{
+  background-color: #f0c040;
+  color: black;
+}
+.btn-primary:hover{
+  background-color: #e2b63c;
+  color: black;
+}
+
+.img-large{
+  width: 80%;
 }
