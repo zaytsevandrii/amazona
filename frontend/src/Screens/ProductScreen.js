@@ -2,7 +2,7 @@ import axios from "axios"
 import React, { useContext, useEffect, useReducer } from "react"
 import Col from "react-bootstrap/esm/Col"
 import Row from "react-bootstrap/esm/Row"
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import ListGroup from "react-bootstrap/ListGroup"
 import Rating from "../components/Rating"
 import Card from "react-bootstrap/Card"
@@ -27,6 +27,7 @@ const reducer = (state, action) => {
 }
 
 const ProductScreen = () => {
+    const navigate = useNavigate()
     const params = useParams()
     const { slug } = params
 
@@ -58,7 +59,9 @@ const ProductScreen = () => {
             window.alert("Sorry, product is out of stock")
             return
         }
-        ctxDispatch({ type: "CART_ADD_ITEM", payload: { ...product, quantity} })
+        ctxDispatch({ type: "CART_ADD_ITEM", payload: { ...product, quantity},
+    })
+    navigate('/cart')
     }
 
     return loading ? (
