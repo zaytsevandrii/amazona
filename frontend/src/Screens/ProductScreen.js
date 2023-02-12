@@ -63,7 +63,7 @@ const ProductScreen = () => {
     })
     navigate('/cart')
     }
-
+    console.log(product.countInStock)
     return loading ? (
         <div>Loading...</div>
     ) : error ? (
