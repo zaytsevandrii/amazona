@@ -1,7 +1,7 @@
 import React from "react"
 import Spinner from 'react-bootstrap/Spinner'
 
-const LoadinBox = () => {
+const LoadingBox = () => {
     return (
             <Spinner>
                 <span className="visually-hidden">Loading...</span>
@@ -9,4 +9,4 @@ const LoadinBox = () => {
     )
 }
 
-export default LoadinBox
+export default LoadingBox
