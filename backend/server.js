@@ -6,6 +6,7 @@ import seedRouter from "./routes/seedRoutes.js"
 import userRouter from "./routes/userRoutes.js"
 import productRouter from "./routes/productRoutes.js"
 import orderRouter from "./routes/orderRoutes.js"
+import path from 'path'
 
 dotenv.config()
 mongoose.set('strictQuery', true)
@@ -36,7 +37,7 @@ app.use((err, req, res, next) => {
 /* app.get("/api/products", (req, res) => {
     res.send(data.products)
 }) */
-app.get("/api/products/slug/:slug", (req, res) => {
+/* app.get("/api/products/slug/:slug", (req, res) => {
     const product = data.products.find((product) => product.slug === req.params.slug)
     if (product) {
         res.send(product)
@@ -51,7 +52,13 @@ app.get("/api/products/:id", (req, res) => {
     } else {
         res.status(404).send({ message: "Product Not Found" })
     }
-})
+}) */
+
+const __dirname = path.resolve();
+app.use(express.static(path.join(__dirname, '/frontend/build')));
+app.get('*', (req, res) =>
+  res.sendFile(path.join(__dirname, '/frontend/build/index.html'))
+);
 
 const port = process.env.PORT || 5000
 
